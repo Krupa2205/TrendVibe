@@ -1,0 +1,13 @@
+@tailwind base;
+ @tailwind components; 
+ @tailwind utilities;
+
+ #icons{
+    display:none;
+ }
+
+ #product-box:hover{
+    #icons{
+        display:flex !important;
+    }
+ }

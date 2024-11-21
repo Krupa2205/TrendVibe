@@ -77,11 +77,12 @@ const Header = () => {
           <FaHeart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
           <div className="relative">
             <FaShoppingCart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
-            <div className="bg-themepurple hover:bg-themeyellow px-3 py-1 text-white hover:text-black rounded-full absolute -top-[10px] -right-[15px] text-[14px] font-bold">
-              2
+            {/* <div className="bg-themepurple hover:bg-themeyellow px-3 py-1 text-white hover:text-black rounded-full absolute -top-[10px] -right-[15px] text-[14px] font-bold"> */}
+              {/* 2 */}
+              {/* Here 2 because in cart how many items you add that's number but it is only frontend part to show.. */}
             </div>
           </div>
-        </div>
+        {/* </div> */}
 
         {/* Mobile Menu Toggle */}
         <div className="flex lg:hidden items-center" onClick={toggleMenu}>

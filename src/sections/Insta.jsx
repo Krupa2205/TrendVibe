@@ -29,7 +29,7 @@ const Insta = () => {
     <img src={insta5} alt="" className='rounded-lg'/>
     <img src={insta6} alt="" className='rounded-lg'/>
       </div>
-      <button data-aos="zoom-in" data-aos-delay="400" className='bg-themepurple hover:bg-themeyellow text-white hover:text-black font-semibold px-8 py-3 rounded-lg mt-12 uppercase'>#ElectraShop</button>
+      <button data-aos="zoom-in" data-aos-delay="400" className='bg-themepurple hover:bg-themeyellow text-white hover:text-black font-semibold px-8 py-3 rounded-lg mt-12 uppercase'>#TrendVibe</button>
     </div>
   )
 }

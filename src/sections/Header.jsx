@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { FaSearch,FaHeart,FaShoppingCart,FaMapMarkedAlt, FaPhoneVolume, FaBars,FaTimes } from 'react-icons/fa'
+import React, { useEffect, useState, useContext } from "react";
+import { FaSearch, FaHeart, FaShoppingCart, FaMapMarkedAlt, FaPhoneVolume, FaBars, FaTimes } from 'react-icons/fa';
 import { IoPerson } from "react-icons/io5";
 import { Link } from "react-scroll";
 import { MdEmail } from "react-icons/md";
+import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import { CartContext } from './CartContext'; // Import CartContext
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cart } = useContext(CartContext); // Get cart from CartContext
+  const cartCount = cart.length; // Calculate the number of items in the cart
+  const navigate = useNavigate(); // For navigation
 
   useEffect(() => {
     AOS.init({
@@ -29,6 +34,11 @@ const Header = () => {
     { link: "Contact", path: "contact" },
   ];
 
+  // Function to handle cart icon click and redirect to CartPage
+  const handleCartClick = () => {
+    navigate('/cart');
+  };
+
   return (
     <>
       {/* Top Header */}
@@ -43,7 +53,7 @@ const Header = () => {
         </h1>
         <h1 className="text-sm font-semibold flex items-center gap-2">
           <MdEmail className="text-[18px]" />
-          <span>electrashop@company.com</span>
+          <span>TrendVibe@company.com</span>
         </h1>
       </div>
 
@@ -51,7 +61,7 @@ const Header = () => {
       <nav className="w-full bg-gray-100 flex justify-between items-center lg:px-16 px-6 py-5 sticky top-0 z-50">
         {/* Logo */}
         <h1 className="text-themepurple font-bold lg:text-[30px] text-3xl underline italic">
-          Electra Shop
+          TrendVibe
         </h1>
 
         {/* Desktop Menu */}
@@ -75,14 +85,15 @@ const Header = () => {
           <FaSearch className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
           <IoPerson className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
           <FaHeart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
-          <div className="relative">
+          <div className="relative" onClick={handleCartClick}>
             <FaShoppingCart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
-            {/* <div className="bg-themepurple hover:bg-themeyellow px-3 py-1 text-white hover:text-black rounded-full absolute -top-[10px] -right-[15px] text-[14px] font-bold"> */}
-              {/* 2 */}
-              {/* Here 2 because in cart how many items you add that's number but it is only frontend part to show.. */}
-            </div>
+            {cartCount > 0 && (
+              <div className="bg-themepurple px-3 py-1 text-white rounded-full absolute -top-[10px] -right-[10px] text-[14px] font-bold">
+                {cartCount}
+              </div>
+            )}
           </div>
-        {/* </div> */}
+        </div>
 
         {/* Mobile Menu Toggle */}
         <div className="flex lg:hidden items-center" onClick={toggleMenu}>

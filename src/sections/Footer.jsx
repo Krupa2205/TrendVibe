@@ -96,9 +96,13 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="w-full lg:w-auto px-4 py-2 border rounded-l-lg outline-none focus:ring-2 focus:ring-themepurple"
               />
-              <button className="bg-themepurple text-white px-4 py-2 rounded-r-lg hover:bg-themeyellow hover:text-black">
-                SUBMIT
-              </button>
+              <button 
+  className="bg-themepurple text-white px-4 py-2 w-full rounded-lg hover:bg-themeyellow hover:text-black focus:outline-none focus:ring-2 focus:ring-themeyellow transition duration-300 ease-in-out transform hover:scale-105"
+  aria-label="Submit"
+>
+  SUBMIT
+</button>
+
             </div>
           </div>
 

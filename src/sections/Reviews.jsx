@@ -9,19 +9,20 @@ import { reviewdata } from '../export';
 
 const Reviews = () => {
 
-  const settings={
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrowsL:false,
+    autoplay: true, // Enable automatic sliding
+    autoplaySpeed: 3000, // Set the interval to 3 seconds
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
+          slidesToScroll: 2,
           infinite: true,
           dots: true
         }
@@ -31,7 +32,7 @@ const Reviews = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2
+          initialSlide: 1
         }
       },
       {
@@ -44,14 +45,16 @@ const Reviews = () => {
     ]
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     AOS.init({
-      offset:100,
-      duration:500,
-      easing:'ease-in-out',
-    })
+      offset: 100,
+      duration: 300,
+      easing: 'ease-in-out',
+    });
     AOS.refresh();
-  },[])
+  }, []);
+
+
 
 
   return (

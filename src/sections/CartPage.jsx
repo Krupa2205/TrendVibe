@@ -10,7 +10,7 @@ const CartPage = () => {
       <h1 className="text-2xl font-bold text-center mb-6">Your Cart</h1>
       {cart.length === 0 ? (
         <p className="text-center text-gray-500 text-xl flex items-center justify-center space-x-2">
-          Your cart is empty
+          Your cart is empty 
           <FaCartArrowDown className="text-4xl" />
         </p>
       ) : (

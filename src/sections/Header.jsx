@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 import { FaSearch, FaHeart, FaShoppingCart, FaMapMarkedAlt, FaPhoneVolume, FaBars, FaTimes } from 'react-icons/fa';
 import { IoPerson } from "react-icons/io5";
-import { Link } from "react-scroll";
+import { Link, NavLink } from "react-router-dom"; // Import from react-router-dom
 import { MdEmail } from "react-icons/md";
-import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
-import { CartContext } from './CartContext'; // Import CartContext
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from './CartContext';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cart } = useContext(CartContext); // Get cart from CartContext
-  const cartCount = cart.length; // Calculate the number of items in the cart
-  const navigate = useNavigate(); // For navigation
+  const { cart } = useContext(CartContext);
+  const cartCount = cart.length;
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
@@ -27,14 +27,12 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navItems = [
-    { link: "Home", path: "home" },
-    { link: "About", path: "about" },
-    { link: "Products", path: "products" },
-    { link: "Testimonials", path: "testimonials" },
-    { link: "Contact", path: "contact" },
+    { link: "Home", path: "#Home" },
+    { link: "Products", path: "#Products" }, // Add route as needed
+    { link: "Testimonials", path: "#Testimonials" },
+    { link: "Contact", path: "#Contact" },
   ];
 
-  // Function to handle cart icon click and redirect to CartPage
   const handleCartClick = () => {
     navigate('/cart');
   };
@@ -67,33 +65,32 @@ const Header = () => {
         {/* Desktop Menu */}
         <ul className="lg:flex items-center gap-10 hidden">
           {navItems.map(({ link, path }) => (
-            <Link
-              key={path}
-              className="text-black text-sm uppercase font-semibold cursor-pointer px-4 py-2 rounded-lg hover:bg-themepurple hover:text-white"
-              to={path}
-              spy
-              offset={-100}
-              smooth
-            >
-              {link}
-            </Link>
+            <li key={path}>
+              <NavLink
+                to={path}
+                className="text-black text-sm uppercase font-semibold cursor-pointer px-4 py-2 rounded-lg hover:bg-themepurple hover:text-white"
+                onClick={closeMenu} // Ensure mobile menu closes
+              >
+                {link}
+              </NavLink>
+            </li>
           ))}
         </ul>
 
         {/* Header Icons */}
-        <div id="header-icons" className="lg:flex hidden items-center gap-6 text-black">
+        {/* <div id="header-icons" className="lg:flex hidden items-center gap-6 text-black"> */}
           <FaSearch className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
           <IoPerson className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
           <FaHeart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
-          <div className="relative" onClick={handleCartClick}>
-            <FaShoppingCart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
+          <div className="relative cursor-pointer">
+            <FaShoppingCart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple"/>
             {cartCount > 0 && (
-              <div className="bg-themepurple px-3 py-1 text-white rounded-full absolute -top-[10px] -right-[10px] text-[14px] font-bold">
+              <div className="bg-themepurple px-1  text-white rounded-full absolute -top-[10px] -right-[10px] text-[14px] font-bold">
                 {cartCount}
               </div>
             )}
           </div>
-        </div>
+        {/* </div> */}
 
         {/* Mobile Menu Toggle */}
         <div className="flex lg:hidden items-center" onClick={toggleMenu}>
@@ -110,17 +107,15 @@ const Header = () => {
         >
           <ul className="flex flex-col items-center gap-2 w-full">
             {navItems.map(({ link, path }) => (
-              <Link
-                key={path}
-                className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-themeyellow hover:text-black w-full text-center"
-                to={path}
-                spy
-                offset={-100}
-                smooth
-                onClick={closeMenu}
-              >
-                {link}
-              </Link>
+              <li key={path}>
+                <NavLink
+                  to={path}
+                  className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-themeyellow hover:text-black w-full text-center"
+                  onClick={closeMenu} // Close menu on navigation
+                >
+                  {link}
+                </NavLink>
+              </li>
             ))}
           </ul>
         </div>

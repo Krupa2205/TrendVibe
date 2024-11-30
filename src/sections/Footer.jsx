@@ -46,7 +46,7 @@ const Footer = () => {
       <div className="w-full lg:px-20 px-5 py-10 bg-gray-100 grid lg:grid-cols-5 grid-cols-1 gap-10">
         {/* Brand and About */}
         <div data-aos="zoom-in" data-aos-delay="200" className="flex flex-col gap-4">
-          <h1 className="text-4xl font-bold text-themepurple underline italic">Electra Shop</h1>
+          <h1 className="text-4xl font-bold text-themepurple underline italic">TrendVibe</h1>
           <p className="text-gray-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga repellendus ab minus distinctio doloremque ut
             nihil sit repellat delectus.
@@ -87,24 +87,7 @@ const Footer = () => {
             <img src={pay4} alt="Pay4" className="w-[50px] rounded-lg" />
           </div>
 
-          {/* Subscribe Section */}
-          <div className="flex flex-col lg:flex-row gap-4 items-center w-full lg:w-auto">
-            <h1 className="text-black font-semibold text-xl">Subscribe to our Newsletter</h1>
-            <div className="flex w-full lg:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full lg:w-auto px-4 py-2 border rounded-l-lg outline-none focus:ring-2 focus:ring-themepurple"
-              />
-              <button 
-  className="bg-themepurple text-white px-4 py-2 w-full rounded-lg hover:bg-themeyellow hover:text-black focus:outline-none focus:ring-2 focus:ring-themeyellow transition duration-300 ease-in-out transform hover:scale-105"
-  aria-label="Submit"
->
-  SUBMIT
-</button>
-
-            </div>
-          </div>
+        
 
           {/* Copyright */}
           <div className="w-full lg:w-auto text-center lg:text-right">

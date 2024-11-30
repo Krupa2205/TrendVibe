@@ -11,7 +11,7 @@ import Banner from './sections/Banner';
 import Reviews from './sections/Reviews';
 import Insta from './sections/Insta';
 import Footer from './sections/Footer';
-import CartProvider from './sections/CartContext';
+import { CartProvider } from './context/CartContext';
 import CartPage from './sections/CartPage'; // Import CartPage
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          {/* Main route for homepage */}
           <Route path="/" element={
             <>
               <Hero />
@@ -27,14 +28,16 @@ function App() {
               <Types />
               <Services />
               <Productsgrid />
-              <CartPage/>
               <Banner />
               <Reviews />
               <Insta />
               <Footer />
             </>
           } />
-          <Route path="/cart" element={<CartPage />} /> {/* Define CartPage route */}
+
+          {/* Route for CartPage */}
+          <Route path="/cart" element={<CartPage />} /> 
+
         </Routes>
       </Router>
     </CartProvider>

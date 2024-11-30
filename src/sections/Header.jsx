@@ -4,7 +4,7 @@ import { IoPerson } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom"; // Import from react-router-dom
 import { MdEmail } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from './CartContext';
+import { CartContext } from "../context/CartContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -27,7 +27,7 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navItems = [
-    { link: "Home", path: "#Home" },
+    { link: "Home", path: "/" },
     { link: "Products", path: "#Products" }, // Add route as needed
     { link: "Testimonials", path: "#Testimonials" },
     { link: "Contact", path: "#Contact" },
@@ -83,7 +83,7 @@ const Header = () => {
           <IoPerson className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
           <FaHeart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple" />
           <div className="relative cursor-pointer">
-            <FaShoppingCart className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple"/>
+            <FaShoppingCart  onClick={handleCartClick} className="w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple"/>
             {cartCount > 0 && (
               <div className="bg-themepurple px-1  text-white rounded-full absolute -top-[10px] -right-[10px] text-[14px] font-bold">
                 {cartCount}

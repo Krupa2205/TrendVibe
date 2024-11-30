@@ -110,13 +110,7 @@ const Footer = () => {
         <img src={pay3} alt="" className='w-[50px] rounded-lg' />
         <img src={pay4} alt="" className='w-[50px] rounded-lg' />
       </div>
-      <div className='lg:w-[60%] w-full flex lg:flex-row flex-col justify-center items-center gap-4 flex-grow'>
-      <h1 className='text-black font-semibold text-2xl'>Subscribe Newletter</h1>
-      <div>
-        <input type="email" placeholder='Enter valid email' className='lg::w-auto w-full capitalize px-6 py-3 rounded-l-lg'/>
-        <button className='bg-themepurple lg:w-auto w-full text-white hover:bg-themeyellow hover:text-black px-6 py-3 rounded-r-lg font-semibold'>SUBMIT</button>
-      </div>
-      </div>
+     
 
       <div className='lg:w-[20%] w-full'>
         <p className='text-gray-500 lg:text-end text-center'>

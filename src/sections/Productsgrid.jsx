@@ -4,9 +4,9 @@ import { MdAddShoppingCart, MdOutlineRemoveRedEye } from 'react-icons/md';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { products } from '../export';
-import { CartContext } from './CartContext'; // Correct import
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CartContext } from '../context/CartContext';
 
 const Productsgrid = () => {
   const { addToCart } = useContext(CartContext); // Correct usage

@@ -14,27 +14,43 @@ const CartPage = () => {
 
   const handleRemove = (item) => {
     removeFromCart(item);
-    toast.success('Item removed from cart!', {
+    toast.success(`${item.name} removed from cart!`, {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 3000,
       hideProgressBar: false,
     });
+  };
+
+  const calculateTotalPrice = () => {
+    return cart.reduce((total, item) => {
+      const price = parseFloat(item.price) || 0; // Ensure price is a valid number
+      const quantity = item.quantity || 1;      // Default quantity to 1 if missing
+      return total + price * quantity;
+    }, 0);
+  };
+
+  const calculateTotalItems = () => {
+    return cart.reduce((total, item) => {
+      const quantity = item.quantity || 1; // Default quantity to 1 if missing
+      return total + quantity;
+    }, 0);
   };
 
   return (
     <div className="cart-page container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Your Cart</h1>
-      <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} />
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
 
       <input
         type="text"
         placeholder="Search items..."
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="mb-4 p-2 border rounded"
+        className="mb-4 p-2 border rounded w-full"
       />
 
-      <div className="cart-summary">
-        <p>Total items: {cart.length}</p>
+      <div className="cart-summary text-right mb-4">
+        <p>Total items: {calculateTotalItems()}</p>
+        <p className="font-bold">Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
       </div>
 
       {cart.length === 0 ? (
@@ -57,10 +73,25 @@ const CartPage = () => {
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-lg font-semibold">{item.name}</h2>
                 <p className="text-gray-600">${item.price}</p>
-                <div className="quantity-control">
-                  <button onClick={() => decreaseQuantity(item)}>-</button>
-                  <input type="number" value={item.quantity} readOnly />
-                  <button onClick={() => increaseQuantity(item)}>+</button>
+                <div className="quantity-control flex items-center justify-center space-x-2 mt-2">
+                  <button
+                    onClick={() => decreaseQuantity(item)}
+                    className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-1 px-3 rounded"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    value={item.quantity || 1}
+                    readOnly
+                    className="text-center border w-12"
+                  />
+                  <button
+                    onClick={() => increaseQuantity(item)}
+                    className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-1 px-3 rounded"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
               <button

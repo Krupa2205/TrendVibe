@@ -71,7 +71,7 @@ const Productsgrid = () => {
             </div>
             <h1 className="text-lg text-gray-400 font-semibold">{item.category}</h1>
             <h1 className="text-xl text-black font-semibold">{item.name}</h1>
-            <h1 className='text-lg text-themepurple font-semibold'>{item.price}</h1>
+            <h1 className='text-lg text-themepurple font-semibold'>{`$${item.price}`}</h1> {/* Add $ symbol */}
             <div className="w-full mt-2"></div>
             <hr />
             <div className="flex justify-between items-center gap-6 mt-3">

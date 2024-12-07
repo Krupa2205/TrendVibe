@@ -1,66 +1,50 @@
-import earbud from "./assets/earbud.jpg";
-import speakers from "./assets/speakers.jpg";
-import watch from "./assets/watch.jpg";
-import pendrive from "./assets/pendrive.jpg";
-import laptop from "./assets/laptop.jpg";
-import headset from "./assets/cat3.jpg";
-import mouse from "./assets/mouse.jpg";
-import camera from "./assets/camera.jpg";
+import Earbuds1 from "./assets/Earbuds1.jpg";
+import Earbuds2 from "./assets/Earbuds2.jpg";
+import Earbuds3 from "./assets/Earbuds3.jpg";
+import Earbuds4 from "./assets/Earbuds4.jpg";
+import Camera1 from "./assets/Camera1.jpg";
+import Camera2 from "./assets/Camera2.jpg";
+import Camera3 from "./assets/Camera3.jpg";
+import Camera4 from "./assets/Camera4.jpg";
+import Laptop1 from "./assets/Laptop1.jpg";
+import Laptop2 from "./assets/Laptop2.jpg";
+import Laptop3 from "./assets/Laptop3.jpg";
+import Laptop4 from "./assets/Laptop4.jpg";
+import Mouse1 from "./assets/Mouse1.jpg";
+import Mouse2 from "./assets/Mouse2.jpg";
+import Mouse3 from "./assets/Mouse3.jpg";
+import Mouse4 from "./assets/Mouse4.jpg";
 import test1 from "./assets/test-1.jpg";
 import test2 from "./assets/test-2.jpg";
 import test3 from "./assets/test-3.jpg";
 import test4 from "./assets/test-4.jpg";
 import test5 from "./assets/test-5.jpg";
+import Watch1 from "./assets/Watch1.jpg";
+import Watch2 from "./assets/Watch2.jpg";
+import Watch3 from "./assets/Watch3.jpg";
+import Watch4 from "./assets/Watch4.jpg";
 
 export const products = [
-  {
-    img: earbud,
-    category: "Earphones",
-    name: "Smart Earbuds",
-    price: "$45.98",
-  },
-  {
-    img: speakers,
-    category: "Speakers",
-    name: "Bluetooth Speakers",
-    price: "$192.23",
-  },
-  {
-    img: watch,
-    category: "Smart Watch",
-    name: "Smart Watch",
-    price: "$12.35",
-  },
-  {
-    img: pendrive,
-    category: "Accessories",
-    name: "Pendrive",
-    price: "$11.98",
-  },
-  {
-    img: laptop,
-    category: "Computers Accessories",
-    name: "Asus Tuff F15",
-    price: "$897.28",
-  },
-  {
-    img: headset,
-    category: "Music & Videos",
-    name: "Wireless Headset",
-    price: "$67.88",
-  },
-  {
-    img: mouse,
-    category: "Computer Accessories",
-    name: "Wireless Mouse",
-    price: "$32.78",
-  },
-  {
-    img: camera,
-    category: "Films & Gaming",
-    name: "DSLR 360 view",
-    price: "$145.28",
-  },
+  { img: Earbuds1, name: "Earbuds", price: "45.98" },
+  { img: Earbuds2, name: "Earbuds", price: "45.98" },
+  { img: Earbuds3, name: "Earbuds", price: "45.98" },
+  { img: Earbuds4, name: "Earbuds", price: "45.98" },
+  { img: Camera2, name: "Camera", price: "12.35" },
+  { img: Camera1, name: "Camera", price: "12.35" },
+  { img: Camera3, name: "Camera", price: "12.35" },
+  { img: Camera4, name: "Camera", price: "12.35" },
+  { img: Laptop1, name: "Laptop", price: "11.98" },
+  { img: Laptop2, name: "Laptop", price: "11.98" },
+  { img: Laptop3, name: "Laptop", price: "11.98" },
+  { img: Laptop4, name: "Laptop", price: "11.98" },
+  { img: Mouse1, name: "Wireless Mouse", price: "145.28" },
+  { img: Mouse2, name: "Wireless Mouse", price: "145.28" },
+  { img: Mouse3, name: "Mouse", price: "145.28" },
+  { img: Mouse4, name: "Mouse", price: "145.28" },
+  { img: Watch1, name: "Watch", price: "123.21" },
+  { img: Watch2, name: "Watch", price: "123.21" },
+  { img: Watch3, name: "Watch", price: "123.21" },
+  { img: Watch4, name: "Watch", price: "123.21" },
 ];
 
 export const reviewdata = [

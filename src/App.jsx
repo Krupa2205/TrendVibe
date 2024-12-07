@@ -12,7 +12,8 @@ import Reviews from './sections/Reviews';
 import Insta from './sections/Insta';
 import Footer from './sections/Footer';
 import { CartProvider } from './context/CartContext';
-import CartPage from './sections/CartPage'; // Import CartPage
+import CartPage from './sections/CartPage';
+
 
 function App() {
   return (

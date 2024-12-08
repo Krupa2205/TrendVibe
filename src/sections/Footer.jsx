@@ -3,6 +3,7 @@ import { Link } from 'react-scroll';
 import { FaArrowUp, FaGithub, FaLinkedin } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import logo from '../assets/Logo.png';  // Import the logo image
 
 const Footer = () => {
   useEffect(() => {
@@ -20,7 +21,16 @@ const Footer = () => {
       <div className="w-full lg:px-20 px-5 py-10 bg-gray-100 grid lg:grid-cols-3 grid-cols-1 gap-10">
         {/* Brand and About */}
         <div data-aos="zoom-in" data-aos-delay="200" className="flex flex-col gap-4 text-center">
-          <h1 className="text-4xl font-bold text-themepurple underline italic">TrendVibe</h1>
+          <div className="flex justify-center items-center gap-2">
+            {/* Display the project logo */}
+            <img
+              src={logo}  // Use the imported logo
+              alt="Project Logo"
+              className="w-16 h-16"  // Adjust size (e.g., 64px by 64px)
+            />
+            {/* Project Name */}
+            <h1 className="text-4xl font-bold text-themepurple underline italic">TrendVibe</h1>
+          </div>
           <p className="text-gray-500">Bringing the latest trends and vibes to you.</p>
         </div>
 
@@ -29,7 +39,7 @@ const Footer = () => {
           <h2 className="text-xl font-semibold">Connect with Us</h2>
           <div className="flex gap-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Krupa2205"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-themepurple transform hover:scale-110 transition-transform duration-300"
@@ -37,14 +47,13 @@ const Footer = () => {
               <FaGithub size={30} />
             </a>
             <a
-              href="https://www.linkedin.com/in/yourusername/"
+              href="https://www.linkedin.com/in/kaklotar-k-6200042a7/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-themepurple transform hover:scale-110 transition-transform duration-300"
             >
               <FaLinkedin size={30} />
             </a>
-            
           </div>
         </div>
 

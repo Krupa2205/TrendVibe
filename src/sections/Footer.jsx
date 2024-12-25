@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import { FaArrowUp, FaGithub, FaLinkedin } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import logo from '../assets/Logo.png';  // Import the logo image
+import logo from '../assets/Logo.png'; 
 
 const Footer = () => {
   useEffect(() => {
@@ -24,9 +24,9 @@ const Footer = () => {
           <div className="flex justify-center items-center gap-2">
             {/* Display the project logo */}
             <img
-              src={logo}  // Use the imported logo
+              src={logo} 
               alt="Project Logo"
-              className="w-16 h-16"  // Adjust size (e.g., 64px by 64px)
+              className="w-16 h-16" 
             />
             {/* Project Name */}
             <h1 className="text-4xl font-bold text-themepurple underline italic">TrendVibe</h1>
@@ -39,7 +39,7 @@ const Footer = () => {
           <h2 className="text-xl font-semibold">Connect with Us</h2>
           <div className="flex gap-6">
             <a
-              href="https://github.com/Krupa2205"
+              href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-themepurple transform hover:scale-110 transition-transform duration-300"
@@ -47,7 +47,7 @@ const Footer = () => {
               <FaGithub size={30} />
             </a>
             <a
-              href="https://www.linkedin.com/in/kaklotar-k-6200042a7/"
+              href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-themepurple transform hover:scale-110 transition-transform duration-300"
@@ -57,9 +57,14 @@ const Footer = () => {
           </div>
         </div>
 
+{/* "E-commerce excellence, made with ❤ by Krupa" */}
         {/* Copyright */}
         <div className="w-full text-center lg:text-right">
-          <p className="text-gray-500">Made by Krupa❤🤗</p>
+        <p className="mt-4 md:mt-0 text-sm md:text-base text-black">
+        <span className="font-bold">E-commerce excellence made with,</span> <span className="text-black-500 animate-pulse">❤️</span><span>By Krupa</span>
+        </p>
+        <p>&copy; 2024 Trendvibe</p>
+        <p>Terms & Conditions | Privacy Policy</p>
         </div>
       </div>
 

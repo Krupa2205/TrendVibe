@@ -13,7 +13,7 @@ import Insta from './sections/Insta';
 import Footer from './sections/Footer';
 import { CartProvider } from './context/CartContext';
 import CartPage from './sections/CartPage';
-
+import LoginPage from './sections/LoginPage';
 
 function App() {
   return (
@@ -36,9 +36,13 @@ function App() {
             </>
           } />
 
-          {/* Route for CartPage */}
-          <Route path="/cart" element={<CartPage />} /> 
+          {/* Route for CartPage with payment integration */}
+          <Route path="/cart" element={<CartPage />} />
 
+          {/* Route for LoginPage */}
+          <Route path="/login" element={<LoginPage />} />
+          {/* Route for Productsgrid */}
+          <Route path="/Productsgrid" element={<Productsgrid/>}/>
         </Routes>
       </Router>
     </CartProvider>

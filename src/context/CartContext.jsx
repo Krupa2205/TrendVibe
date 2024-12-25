@@ -14,35 +14,37 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
- // Function to add an item to the cart
+ //  add an item to the cart
 const addToCart = (item) => {
-  const itemWithId = { ...item, id: Date.now(), quantity: 1 };  // Ensure unique id and set default quantity to 1
+  const itemWithId = { ...item, id: Date.now(), quantity: 1 };  
+  
   setCart((prevCart) => [...prevCart, itemWithId]);
 };
 
 
-  // Function to remove an item from the cart
+  //  remove an item from the cart
   const removeFromCart = (itemToRemove) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== itemToRemove.id));
   };
 
-  // Function to increase the quantity of an item in the cart
+  //  increase ..
   const increaseQuantity = (itemToIncrease) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
         item.id === itemToIncrease.id
-          ? { ...item, quantity: (item.quantity || 1) + 1 }  // Ensure quantity is valid and increment it
+          ? { ...item, quantity: (item.quantity || 1) + 1 }  
+          
           : item
       )
     );
   };
 
-  // Function to decrease the quantity of an item in the cart
+  //  decrease ...
   const decreaseQuantity = (itemToDecrease) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
         item.id === itemToDecrease.id && item.quantity > 1
-          ? { ...item, quantity: (item.quantity || 1) - 1 }  // Ensure quantity is valid and decrement it
+          ? { ...item, quantity: (item.quantity || 1) - 1 }  
           : item
       )
     );

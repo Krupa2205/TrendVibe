@@ -1,41 +1,81 @@
-import React, { useState, useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React, { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { FaCartArrowDown } from "react-icons/fa";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartPage = () => {
-  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
+  const securityKey = import.meta.env.VITE_SECURITY_KEY;
+
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
+    useContext(CartContext);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredItems = cart.filter(item =>
+  const filteredItems = cart.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleRemove = (item) => {
-    removeFromCart(item);
-    toast.success(`${item.name} removed from cart!`, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-    });
-  };
-
   const calculateTotalPrice = () => {
     return cart.reduce((total, item) => {
-      const price = parseFloat(item.price) || 0; // Ensure price is a valid number
-      const quantity = item.quantity || 1;      // Default quantity to 1 if missing
+      const price = parseFloat(item.price) || 0;
+      const quantity = item.quantity || 1;
       return total + price * quantity;
     }, 0);
   };
 
-  const calculateTotalItems = () => {
-    return cart.reduce((total, item) => {
-      const quantity = item.quantity || 1; // Default quantity to 1 if missing
-      return total + quantity;
-    }, 0);
+  const handlePayment = async () => {
+    const totalAmount = calculateTotalPrice();
+
+    try {
+      // Create order on backend
+      const { data } = await axios.post("http://localhost:5001/order", {
+        amount: totalAmount,
+      });
+
+      // Configure Razorpay options
+      const options = {
+        key: securityKey,
+        amount: data.amount,
+        currency: data.currency,
+        name: "TrendVibe",
+        description: "Cart Payment",
+        order_id: data.id,
+        handler: (response) => {
+          toast.success("Payment successful!");
+          console.log(response);
+        },
+        prefill: {
+          name: "Your Name",
+          email: "your.email@example.com",
+          contact: "1234567890",
+        },
+        theme: {
+          color: "#474E93",
+        },
+      };
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+      console.log("Initiated Razorpay");
+    } catch (error) {
+      console.error("Error during payment:", error);
+      toast.error("Payment failed. Please try again.");
+    }
   };
 
+  const handleRemove = (item) => {
+    removeFromCart(item);
+    toast(`Removed ${item.name} from the cart`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progressStyle: { backgroundColor: "white" }, // Red progress bar
+      style: { color: "red", backgroundColor: "white" }, // White font on black background
+    });
+  };
   return (
     <div className="cart-page container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Your Cart</h1>
@@ -49,7 +89,7 @@ const CartPage = () => {
       />
 
       <div className="cart-summary text-right mb-4">
-        <p>Total items: {calculateTotalItems()}</p>
+        <p>Total items: {cart.length}</p>
         <p className="font-bold">Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
       </div>
 
@@ -102,6 +142,17 @@ const CartPage = () => {
               </button>
             </div>
           ))}
+        </div>
+      )}
+
+      {cart.length > 0 && (
+        <div className="text-center mt-6">
+          <button
+            onClick={handlePayment}
+            className="bg-purple-800 font-bold text-white px-6 py-3 rounded shadow-lg hover:bg-purple-700"
+          >
+            Proceed to Pay ₹{calculateTotalPrice().toFixed(2)}
+          </button>
         </div>
       )}
     </div>

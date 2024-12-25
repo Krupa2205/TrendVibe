@@ -53,7 +53,7 @@ const Category = () => {
             className="rounded-full cursor-pointer w-[80px] lg:w-[120px]"
           />
           <h1 className="text-black text-base lg:text-xl font-semibold hover:text-themepurple cursor-pointer text-center">
-            Portable Speakers
+            
           </h1>
         </div>
 
@@ -69,7 +69,7 @@ const Category = () => {
             className="rounded-full cursor-pointer w-[80px] lg:w-[120px]"
           />
           <h1 className="text-black text-base lg:text-xl font-semibold hover:text-themepurple cursor-pointer text-center">
-            Portable Speakers
+            
           </h1>
         </div>
 
@@ -85,7 +85,7 @@ const Category = () => {
             className="rounded-full cursor-pointer w-[80px] lg:w-[120px]"
           />
           <h1 className="text-black text-base lg:text-xl font-semibold hover:text-themepurple cursor-pointer text-center">
-            Portable Speakers
+            
           </h1>
         </div>
 
@@ -101,7 +101,7 @@ const Category = () => {
             className="rounded-full cursor-pointer w-[80px] lg:w-[120px]"
           />
           <h1 className="text-black text-base lg:text-xl font-semibold hover:text-themepurple cursor-pointer text-center">
-            Portable Speakers
+            
           </h1>
         </div>
 
@@ -117,7 +117,7 @@ const Category = () => {
             className="rounded-full cursor-pointer w-[80px] lg:w-[120px]"
           />
           <h1 className="text-black text-base lg:text-xl font-semibold hover:text-themepurple cursor-pointer text-center">
-            Portable Speakers
+            
           </h1>
         </div>
       </div>

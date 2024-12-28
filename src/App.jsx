@@ -14,10 +14,10 @@ import Footer from './sections/Footer';
 import { CartProvider } from './context/CartContext'; 
 import CartPage from './sections/CartPage'; 
 
-// Import Clerk components 
+
 import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut, SignIn, SignUp } from '@clerk/clerk-react'; 
 
-// Import Toastify components 
+
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,21 +25,21 @@ import 'react-toastify/dist/ReactToastify.css';
 const clerkPublishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function App() {
-  // Function to show a success toast for login
+  
   const showLoginToast = () => {
     toast.success('Login Successful!', {
       position: 'top-right', 
-      autoClose: 5000,
+      autoClose: 3000, 
       hideProgressBar: false,
       progressClassName: 'toast-progress-green',
     });
   };
 
-  // Function to show an error toast for logout
+  
   const showLogoutToast = () => {
     toast.error('Logout Successful!', {
       position: 'top-right', 
-      autoClose: 5000,
+      autoClose: 3000, 
       hideProgressBar: false,
       progressClassName: 'toast-progress-red',
     });

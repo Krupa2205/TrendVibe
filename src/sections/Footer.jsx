@@ -61,10 +61,10 @@ const Footer = () => {
         {/* Copyright */}
         <div className="w-full text-center lg:text-right">
         <p className="mt-4 md:mt-0 text-sm md:text-base text-black">
-        <span className="font-bold">E-commerce excellence made with,</span> <span className="text-black-500 animate-pulse">❤️</span><span>By Krupa</span>
+        <span className="font-bold">E-commerce excellence made with,</span> <span className="text-black-500 animate-pulse"><br />❤️</span><span>By Krupa</span>
         </p>
         <p>&copy; 2024 Trendvibe</p>
-        <p>Terms & Conditions | Privacy Policy</p>
+       
         </div>
       </div>
 

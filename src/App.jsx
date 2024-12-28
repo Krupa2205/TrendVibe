@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './sections/Header';
@@ -13,39 +13,58 @@ import Insta from './sections/Insta';
 import Footer from './sections/Footer';
 import { CartProvider } from './context/CartContext';
 import CartPage from './sections/CartPage';
-import LoginPage from './sections/LoginPage';
+
+// Import Clerk components
+import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut, SignIn, SignUp } from '@clerk/clerk-react';
+
+// Use your Clerk publishable key for the front-end
+const clerkPublishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function App() {
   return (
-    <CartProvider>
-      <Router>
-        <Header />
-        <Routes>
-          {/* Main route for homepage */}
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Category />
-              <Types />
-              <Services />
-              <Productsgrid />
-              <Banner />
-              <Reviews />
-              <Insta />
-              <Footer />
-            </>
-          } />
+    <ClerkProvider publishableKey={clerkPublishableKey}>
+      <CartProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <Category />
+                <Types />
+                <Services />
+                <Productsgrid />
+                <Banner />
+                <Reviews />
+                <Insta />
+                <Footer />
+              </>
+            } />
 
-          {/* Route for CartPage with payment integration */}
-          <Route path="/cart" element={<CartPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/Productsgrid" element={<Productsgrid />} />
+            {/* Center the SignIn page */}
+            <Route path="/sign-in" element={
+              <div className="flex items-center justify-center min-h-screen">
+                <SignIn />
+              </div>
+            } />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/login" element={<RedirectToSignIn />} />
+          </Routes>
+          <SignedIn>
+           
+          </SignedIn>
 
-          {/* Route for LoginPage */}
-          <Route path="/login" element={<LoginPage />} />
-          {/* Route for Productsgrid */}
-          <Route path="/Productsgrid" element={<Productsgrid/>}/>
-        </Routes>
-      </Router>
-    </CartProvider>
+          <SignedOut>
+            <div>
+              <p>Please sign in to access your account.</p>
+            </div>
+          </SignedOut>
+
+        </Router>
+      </CartProvider>
+    </ClerkProvider>
   );
 }
 

@@ -26,9 +26,4 @@ dist-ssr
 # Express.js
 .env
 
-#firebase
-
-firebase.js
-firebaseconfig.js
-
 

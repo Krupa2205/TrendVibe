@@ -7,6 +7,7 @@ import cat5 from '../assets/cat5.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 const Category = () => {
   useEffect(() => {
     AOS.init({

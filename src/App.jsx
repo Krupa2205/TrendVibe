@@ -76,7 +76,7 @@ function App() {
             <Route path="/login" element={<RedirectToSignIn />} />
           </Routes>
 
-          {/* Update logged-in state without causing infinite renders */}
+    
           <SignedIn>
             {() => {
               if (loggedIn !== true) setLoggedIn(true);

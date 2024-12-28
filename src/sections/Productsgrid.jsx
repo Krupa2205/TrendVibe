@@ -13,7 +13,7 @@ import { useAuth } from "@clerk/clerk-react";
 const Productsgrid = () => {
   const { addToCart } = useContext(CartContext);
   const navigate = useNavigate();
-  const { isSignedIn } = useAuth(); // Clerk's hook to check user authentication
+  const { isSignedIn } = useAuth(); 
 
   useEffect(() => {
     AOS.init({
@@ -27,7 +27,7 @@ const Productsgrid = () => {
   const handleAddToCart = (product) => {
     if (!isSignedIn) {
       toast.warning("You need to sign in to add items to the cart!");
-      navigate("/login");
+      // navigate("/");
       return;
     }
 

@@ -37,12 +37,17 @@ const Header = () => {
       {/* Left side Logo */}
       <div className="flex items-center space-x-2">
         <img src={Logo} alt="Logo" className="w-10 h-10" />
-        <h1 className="text-xl font-bold text-gray-800 font-oswald">TrendVibe</h1>
+        <h1 className="text-xl font-bold text-gray-800 font-oswald">
+          TrendVibe
+        </h1>
       </div>
 
       {/* Navbar links */}
       <div className="hidden md:flex items-center space-x-6">
-        <NavLink to="/" className="text-gray-700 hover:text-blue-500 font-bold font-inter">
+        <NavLink
+          to="/"
+          className="text-gray-700 hover:text-blue-500 font-bold font-inter"
+        >
           Home
         </NavLink>
         <a
@@ -52,7 +57,10 @@ const Header = () => {
         >
           Products
         </a>
-        <button onClick={handleCartClick} className="text-gray-700 hover:text-blue-500 font-bold font-inter">
+        <button
+          onClick={handleCartClick}
+          className="text-gray-700 hover:text-blue-500 font-bold font-inter"
+        >
           Cart
         </button>
       </div>
@@ -92,33 +100,45 @@ const Header = () => {
       {isMenuOpen && (
         <ul className="absolute top-16 left-0 w-full bg-gray-100 flex flex-col items-center space-y-4 py-6 z-40">
           <li>
-            <NavLink to="/" className="text-gray-700 hover:text-blue-500 font-kanit">
+            <NavLink
+              to="/"
+              className="text-gray-700 hover:text-blue-500 font-kanit"
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <a
-              href="/Productsgrid"
-              className="text-gray-700 hover:text-blue-500 font-kanit"
+            <NavLink
+              to="/Productsgrid"
+              className="text-gray-700 hover:text-blue-500 font-bold font-inter"
               onClick={closeMenu}
             >
               Products
-            </a>
+            </NavLink>
           </li>
           <li>
-            <button onClick={handleCartClick} className="text-gray-700 hover:text-blue-500 font-kanit">
+            <button
+              onClick={handleCartClick}
+              className="text-gray-700 hover:text-blue-500 font-kanit"
+            >
               Cart
             </button>
           </li>
           {user ? (
             <li>
-              <button onClick={handleLogout} className="text-gray-700 hover:text-blue-500 font-kanit">
+              <button
+                onClick={handleLogout}
+                className="text-gray-700 hover:text-blue-500 font-kanit"
+              >
                 Logout
               </button>
             </li>
           ) : (
             <li>
-              <button onClick={handleLoginClick} className="text-blue-500 font-kanit">
+              <button
+                onClick={handleLoginClick}
+                className="text-blue-500 font-kanit"
+              >
                 Login
               </button>
             </li>

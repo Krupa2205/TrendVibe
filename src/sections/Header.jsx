@@ -52,7 +52,7 @@ const Header = () => {
           Home
         </NavLink>
         <NavLink
-  to="/Productsgrid" // Ensure the path starts with '/'
+  to="/Productsgrid" 
   className="text-gray-700 hover:text-blue-500 font-bold font-inter"
   onClick={closeMenu}
 >

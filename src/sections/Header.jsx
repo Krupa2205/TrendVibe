@@ -33,14 +33,6 @@ const Header = () => {
   };
 
 
-  const handleCartClick = () => {
-    if (!user) {
-      alert("Please log in first to access your cart!");
-    } else {
-      navigate("/cart");
-    }
-  };
-
   return (
     <nav className="w-full bg-gray-100 flex justify-between items-center px-6 py-4 sticky top-0 z-50 font-kanit">
       {/* Left side Logo */}

@@ -1,16 +1,14 @@
 import React from 'react';
 
-const Logo = () => {
+const Logo = ({ width = "31.88", height = "32" }) => {
   return (
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
         aria-hidden="true"
         role="img"
-        className="iconify iconify--logos"
-        width="31.88"
-        height="32"
+        width={width}
+        height={height}
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 256 257"
       >

@@ -29,7 +29,7 @@ const CartPage = () => {
 
     try {
       // Create order on backend
-      const { data } = await axios.post("http://localhost:5001/order", {
+      const { data } = await axios.post("https://krupa-backend.onrender.com/", {
         amount: totalAmount,
       });
 

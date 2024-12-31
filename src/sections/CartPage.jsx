@@ -72,8 +72,8 @@ const CartPage = () => {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progressStyle: { backgroundColor: "white" }, // Red progress bar
-      style: { color: "red", backgroundColor: "white" }, // White font on black background
+      progressStyle: { backgroundColor: "white" }, 
+      style: { color: "red", backgroundColor: "white" }, 
     });
   };
   return (

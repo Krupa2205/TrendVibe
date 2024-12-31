@@ -49,21 +49,21 @@ const Header = () => {
           to="/"
           className="text-gray-700 hover:text-blue-500 font-bold font-inter"
         >
-          Home
+          Home🏡
         </NavLink>
         <NavLink
   to="/Productsgrid" 
   className="text-gray-700 hover:text-blue-500 font-bold font-inter"
   onClick={closeMenu}
 >
-  Products
+  Products🛍️
 </NavLink>
 
         <button
           onClick={handleCartClick}
           className="text-gray-700 hover:text-blue-500 font-bold font-inter"
         >
-          Cart
+          Cart🛒
         </button>
       </div>
 
@@ -106,7 +106,7 @@ const Header = () => {
               to="/"
               className="text-gray-700 hover:text-blue-500 font-kanit"
             >
-              Home
+              Home🏡
             </NavLink>
           </li>
           <li>
@@ -115,7 +115,7 @@ const Header = () => {
               className="text-gray-700 hover:text-blue-500 font-bold font-inter"
               onClick={closeMenu}
             >
-              Products
+              Products🛍️
             </NavLink>
           </li>
           <li>
@@ -123,7 +123,7 @@ const Header = () => {
               onClick={handleCartClick}
               className="text-gray-700 hover:text-blue-500 font-kanit"
             >
-              Cart
+              Cart🛒
             </button>
           </li>
           {user ? (

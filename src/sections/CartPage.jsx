@@ -67,10 +67,10 @@ const CartPage = () => {
     removeFromCart(item);
     toast(`Removed ${item.name} from the cart`, {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progressStyle: { backgroundColor: "white" }, 
       style: { color: "red", backgroundColor: "white" }, 
@@ -135,11 +135,13 @@ const CartPage = () => {
                 </div>
               </div>
               <button
-                onClick={() => handleRemove(item)}
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-200"
-              >
-                Remove
-              </button>
+  onClick={() => handleRemove(item)}
+  className="bg-gradient-to-b from-red-600 to-red-500 hover:from-red-400 hover:to-red-500 text-white font-bold py-2 px-4 rounded shadow-md transform transition duration-300 ease-in-out active:translate-y-1 active:shadow-inner"
+>
+  Remove❌
+</button>
+
+
             </div>
           ))}
         </div>

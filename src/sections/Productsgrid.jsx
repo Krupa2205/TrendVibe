@@ -30,11 +30,15 @@ const Productsgrid = () => {
       // navigate("/");
       return;
     }
-
+  
     addToCart(product);
-    toast.success(`${product.name} added to your cart!`);
+    toast.success(`${product.name} added to your cart!`, {
+      pauseOnHover: false, 
+      autoClose: 2000,     
+      position: "top-right" 
+    });
   };
-
+  
   return (
     <div
       id="products"

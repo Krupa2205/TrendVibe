@@ -151,7 +151,7 @@ const CartPage = () => {
         <div className="text-center mt-6">
           <button
             onClick={handlePayment}
-            className="bg-purple-800 font-bold text-white px-6 py-3 rounded shadow-lg hover:bg-purple-700"
+            className="bg-themepurple font-bold text-white px-6 py-3 rounded shadow-lg hover:bg-themeyellow"
           >
             Proceed to Pay ₹{calculateTotalPrice().toFixed(2)}
           </button>
